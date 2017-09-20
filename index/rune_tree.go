@@ -59,7 +59,7 @@ func (t *RuneTree) Get(key []rune) (*RuneTree, bool) {
 // If the function returns false for a node, its subtree is not walked.
 type WalkFunc func(*RuneTree) bool
 
-// Walk walks thef tree, calling walkFn for each child.
+// Walk walks the tree, calling walkFn for each child.
 func (t *RuneTree) Walk(walkFn WalkFunc) {
 	if walkFn(t) {
 		for _, child := range t.Children {
