@@ -1,6 +1,6 @@
 package index
 
-import "jmdict"
+import "github.com/ollie123/jmdict"
 
 // EntrySet represents a set of pointers to jmdict.Entry.
 type EntrySet map[*jmdict.Entry]bool

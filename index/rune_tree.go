@@ -1,6 +1,6 @@
 package index
 
-import "jmdict"
+import "github.com/ollie123/jmdict"
 
 // RuneTree represents a prefix tree (or trie) mapping []rune to *jmdict.Entry.
 type RuneTree struct {

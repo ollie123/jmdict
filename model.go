@@ -47,7 +47,7 @@ type Sense struct {
 // LSource represents the <lsource> element in the JMdict file.
 type LSource struct {
 	Source    string `xml:",chardata"`
-	Language  string `xml:"lang,attr"`
+	Language  string `xml:"http://www.w3.org/XML/1998/namespace lang,attr"`
 	Type      string `xml:"ls_type,attr"`
 	WaseiEigo YesNo  `xml:"ls_wasei,attr"`
 }
@@ -55,5 +55,7 @@ type LSource struct {
 // Gloss represents the <gloss> element in the JMdict file.
 type Gloss struct {
 	Gloss    string   `xml:",chardata"`
+	Gender   string   `xml:"g_gend,attr"`
+	Language string   `xml:"http://www.w3.org/XML/1998/namespace lang,attr"`
 	Priority []string `xml:"pri"`
 }

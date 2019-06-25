@@ -4,7 +4,6 @@ package jmdict
 
 import (
 	"encoding/xml"
-	"fmt"
 	"io"
 )
 
@@ -181,6 +180,7 @@ var entity = map[string]string{
 	"zool":      "zoology term",
 	"joc":       "jocular, humorous term",
 	"anat":      "anatomical term",
+	"quote":     "\"",
 }
 
 // Parse parses the JMdict file from r.
@@ -188,7 +188,7 @@ func Parse(r io.Reader) (result *JMdict, err error) {
 	d := xml.NewDecoder(r)
 	d.Entity = entity
 	if err := d.Decode(&result); err != nil {
-		return nil, fmt.Errorf("parsing JMdict: %v", err)
+		return nil, err
 	}
 	return
 }

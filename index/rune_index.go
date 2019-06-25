@@ -1,7 +1,7 @@
 // Package index contains utilities for indexing the JMdict to support quick searching.
 package index
 
-import "jmdict"
+import "github.com/ollie123/jmdict"
 
 // RuneIndex represents a map of runes to entry sets.
 type RuneIndex map[rune]EntrySet
