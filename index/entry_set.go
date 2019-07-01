@@ -3,15 +3,15 @@ package index
 import "github.com/ollie123/jmdict"
 
 // EntrySet represents a set of pointers to jmdict.Entry.
-type EntrySet map[*jmdict.Entry]bool
+type EntrySet map[*jmdict.Entry]struct{}
 
 // Add adds e to the set.
 func (s EntrySet) Add(e *jmdict.Entry) {
-	s[e] = true
+	s[e] = struct{}{}
 }
 
-// Has returns true if the set contains e.
-func (s EntrySet) Has(e *jmdict.Entry) bool {
+// Contains returns true if the set contains e.
+func (s EntrySet) Contains(e *jmdict.Entry) bool {
 	_, ok := s[e]
 	return ok
 }
@@ -20,7 +20,7 @@ func (s EntrySet) Has(e *jmdict.Entry) bool {
 func (s EntrySet) Intersect(r EntrySet) EntrySet {
 	i := make(EntrySet)
 	for e := range s {
-		if r.Has(e) {
+		if r.Contains(e) {
 			i.Add(e)
 		}
 	}
@@ -43,7 +43,7 @@ func (s EntrySet) Union(r EntrySet) EntrySet {
 func (s EntrySet) Difference(r EntrySet) EntrySet {
 	d := make(EntrySet)
 	for e := range s {
-		if !r.Has(e) {
+		if !r.Contains(e) {
 			d.Add(e)
 		}
 	}

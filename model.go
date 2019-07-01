@@ -22,11 +22,11 @@ type Kanji struct {
 
 // Reading represents the <r_ele> element in the JMdict file.
 type Reading struct {
-	Reading  string   `xml:"reb"`
-	NoKanji  Presence `xml:"re_nokanji"`
-	Restrict []string `xml:"re_restr"`
-	Info     []string `xml:"re_inf"`
-	Priority []string `xml:"re_pri"`
+	Reading  string       `xml:"reb"`
+	NoKanji  PresenceBool `xml:"re_nokanji"`
+	Restrict []string     `xml:"re_restr"`
+	Info     []string     `xml:"re_inf"`
+	Priority []string     `xml:"re_pri"`
 }
 
 // Sense represents the <sense> element in the JMdict file.
@@ -46,10 +46,10 @@ type Sense struct {
 
 // LSource represents the <lsource> element in the JMdict file.
 type LSource struct {
-	Source    string `xml:",chardata"`
-	Language  string `xml:"http://www.w3.org/XML/1998/namespace lang,attr"`
-	Type      string `xml:"ls_type,attr"`
-	WaseiEigo YesNo  `xml:"ls_wasei,attr"`
+	Source    string    `xml:",chardata"`
+	Language  string    `xml:"http://www.w3.org/XML/1998/namespace lang,attr"`
+	Type      string    `xml:"ls_type,attr"`
+	WaseiEigo YesNoBool `xml:"ls_wasei,attr"`
 }
 
 // Gloss represents the <gloss> element in the JMdict file.
